@@ -23,6 +23,7 @@
   </div>
 </template>
 <script>
+import { setTimeout } from "timers";
 export default {
   data() {
     return {
@@ -30,44 +31,53 @@ export default {
       input_user: "",
       input_pwd: "",
       //  表单的提示显示隐藏
-      bool_user:false,
-      bool_pwd:false
+      bool_user: false,
+      bool_pwd: false
     };
   },
-  methods:{
+  methods: {
     // 用户名表单失去焦点
     blur_user() {
-      if(this.input_user) {
+      if (this.input_user) {
         this.bool_user = false;
-      }else {
+      } else {
         this.bool_user = true;
       }
     },
     // 密码框失去焦点
     blur_pwd() {
-      if(this.input_pwd) {
+      if (this.input_pwd) {
         this.bool_pwd = false;
-      }else {
+      } else {
         this.bool_pwd = true;
       }
     },
-    
+
     async admin_login() {
-      await this.$axios.post('https://elm.cangdu.org/admin/login',{
-        user_name:this.input_user,
-        password:this.input_pwd
+      await this.$axios.post("https://elm.cangdu.org/admin/login", {
+        user_name: this.input_user,
+        password: this.input_pwd
       });
       // console.log(res)
     },
     //  登录消息提醒
-     async open() {
-        //  登录发送post请求
-        let res = await this.$axios.post('https://elm.cangdu.org/admin/login',{
-        user_name:this.input_user,
-        password:this.input_pwd
+    async open() {
+      //  登录发送post请求
+      let res = await this.$axios.post("https://elm.cangdu.org/admin/login", {
+        user_name: this.input_user,
+        password: this.input_pwd
       });
       this.$message(res.data.success);
+
+      if (res.data.status != 0) {
+        this.common.setCookie('username',this.input_user,7)
+        setTimeout(() => {
+          this.$router.push({
+            name: "home"
+          });
+        }, 800);
       }
+    }
   }
 };
 </script>
@@ -126,7 +136,7 @@ export default {
     position: absolute;
     top: 54.5%;
     left: 38.5%;
-    width:320px;
+    width: 320px;
     height: 36px;
     opacity: 0;
   }

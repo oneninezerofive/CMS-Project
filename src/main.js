@@ -13,11 +13,22 @@ import {
     TableColumn,
     Pagination,
     Input,
-    Button
+    Button,
+    Form,
+    Message,
+    Upload,
+    TimeSelect,
+    Switch,
+    Dialog,
+    Cascader,
+    InputNumber
 } from 'element-ui'
-Vue.use(Breadcrumb).use(BreadcrumbItem).use(Avatar).use(Table).use(TableColumn).use(Pagination).use(Input).use(Button)
+Vue.use(Breadcrumb).use(BreadcrumbItem).use(Avatar).use(Table).use(TableColumn).use(Pagination).use(Input).use(Button).use(Form).use(Upload).use(TimeSelect).use(Switch).use(Dialog).use(Cascader).use(InputNumber)
 import axios from 'axios'
+import Common from './util/util'
 Vue.prototype.$axios = axios;
+Vue.prototype.common = Common;
+Vue.prototype.$message = Message;
 
 new Vue({
     router,

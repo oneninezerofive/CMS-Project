@@ -121,8 +121,8 @@ export default {
     };
   },
   methods: {
-    handleOpen(key, keyPath) {},
-    handleClose(key, keyPath) {},
+    handleOpen() {},
+    handleClose() {},
     navto(name){
       this.$router.replace({
         name

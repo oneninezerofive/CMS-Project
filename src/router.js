@@ -8,43 +8,48 @@ import Order from './views/hometab/Order'
 import Addfirm from './views/hometab/Addfirm'
 import Setting from './views/hometab/Setting'
 import Admin from './views/hometab/Admin'
+import Login from './views/Login_page'
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      alias:'/home',
-      name: 'home',
-      component: Home,
-    },{
-      path: '/user',
-      name: 'user',
-      component: User
-    },
-    {
-      path: '/firm',
-      name: 'firm',
-      component: Firm
-    },
-    {
-      path: '/order',
-      name: 'order',
-      component: Order
-    },
-    {
-      path: '/addfirm',
-      name: 'addfirm',
-      component: Addfirm
-    },
-    {
-      path: '/setting',
-      name: 'setting',
-      component: Setting
-    },
-    {
-      path: '/admin',
-      name: 'admin',
-      component: Admin
-    }
-  ]
+    routes: [{
+            path: '/',
+            alias: '/home',
+            name: 'home',
+            component: Home,
+        }, {
+            path: '/user',
+            name: 'user',
+            component: User
+        },
+        {
+            path: '/firm',
+            name: 'firm',
+            component: Firm
+        },
+        {
+            path: '/order',
+            name: 'order',
+            component: Order
+        },
+        {
+            path: '/addfirm',
+            name: 'addfirm',
+            component: Addfirm
+        },
+        {
+            path: '/setting',
+            name: 'setting',
+            component: Setting
+        },
+        {
+            path: '/admin',
+            name: 'admin',
+            component: Admin
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login
+        }
+    ]
 })
